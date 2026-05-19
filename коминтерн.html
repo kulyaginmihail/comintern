@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Коминтерн и мировая революция — 1920–1930-е гг.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f0e0c;
+  --bg2: #171610;
+  --bg3: #1e1c16;
+  --border: rgba(200,175,120,0.15);
+  --border2: rgba(200,175,120,0.3);
+  --gold: #c8af78;
+  --gold2: #e8d090;
+  --text: #e8e0d0;
+  --text2: #a09880;
+  --text3: #706858;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 15px;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+.header {
+  background: linear-gradient(180deg, #1a0a08 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border2);
+  padding: 48px 40px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(192,57,43,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.star-ornament {
+  font-size: 28px;
+  color: #c0392b;
+  letter-spacing: 12px;
+  margin-bottom: 16px;
+  display: block;
+  opacity: 0.8;
+}
+.header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(22px, 4vw, 42px);
+  font-weight: 900;
+  color: var(--gold2);
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 20px rgba(200,175,120,0.3);
+}
+.header .subtitle { font-size: 16px; color: var(--text2); font-style: italic; margin-bottom: 20px; }
+.header .hint { display: inline-block; font-size: 12px; color: var(--text3); border: 1px solid var(--border); padding: 4px 14px; border-radius: 20px; letter-spacing: 0.05em; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 16px 40px; border-bottom: 1px solid var(--border); background: var(--bg2); }
+.leg { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--text2); }
+.leg-dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
+.main { max-width: 1200px; margin: 0 auto; padding: 32px 24px 64px; }
+.section { margin-bottom: 36px; }
+.section-label { font-family: 'Playfair Display', serif; font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; padding-left: 2px; opacity: 0.8; }
+.connector { display: flex; align-items: center; gap: 12px; color: var(--text3); font-size: 12px; font-style: italic; margin: 4px 0 20px; }
+.connector::before, .connector::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--border2), transparent); }
+.row { display: grid; gap: 10px; }
+.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.cols-auto { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+@media(max-width:900px) { .cols-4 { grid-template-columns: repeat(2, 1fr); } .cols-3 { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:560px) { .cols-2, .cols-3, .cols-4, .cols-auto { grid-template-columns: 1fr; } .main { padding: 20px 14px 48px; } .legend { padding: 12px 16px; } }
+.card { border-radius: 8px; border: 1px solid; padding: 11px 13px; cursor: pointer; transition: transform .18s, box-shadow .18s, border-color .18s; position: relative; overflow: hidden; }
+.card::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity .2s; pointer-events: none; background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 60%); }
+.card:hover { transform: translateY(-2px); }
+.card:hover::before { opacity: 1; }
+.card-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 13px; margin-bottom: 4px; line-height: 1.3; }
+.card-sub { font-size: 12px; line-height: 1.5; }
+.card-tag { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; margin-top: 6px; letter-spacing: 0.03em; }
+.card .arr { position: absolute; right: 10px; bottom: 9px; font-size: 12px; opacity: 0.35; transition: opacity .2s, transform .2s; }
+.card:hover .arr { opacity: 0.8; transform: translate(2px,-2px); }
+.big-card { border-radius: 10px; border: 1px solid; padding: 16px 20px; cursor: pointer; transition: transform .18s, box-shadow .18s; }
+.big-card:hover { transform: translateY(-2px); }
+.big-card-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.big-card-sub { font-size: 13px; line-height: 1.6; }
+/* Colors */
+.v-red { background: #1c0808; border-color: rgba(192,57,43,0.45); }
+.v-red .card-title,.v-red .big-card-title { color: #f1a898; }
+.v-red .card-sub,.v-red .big-card-sub { color: #b07068; }
+.v-red .card-tag { background: rgba(192,57,43,0.25); color: #f1a898; }
+.v-red:hover { border-color: rgba(231,76,60,0.7); box-shadow: 0 4px 24px rgba(192,57,43,0.2); }
+.v-blue { background: #081420; border-color: rgba(41,128,185,0.4); }
+.v-blue .card-title,.v-blue .big-card-title { color: #7ab8e8; }
+.v-blue .card-sub,.v-blue .big-card-sub { color: #5888a8; }
+.v-blue .card-tag { background: rgba(41,128,185,0.2); color: #7ab8e8; }
+.v-blue:hover { border-color: rgba(93,173,226,0.7); box-shadow: 0 4px 24px rgba(41,128,185,0.2); }
+.v-teal { background: #061410; border-color: rgba(26,122,94,0.4); }
+.v-teal .card-title,.v-teal .big-card-title { color: #5dcea8; }
+.v-teal .card-sub,.v-teal .big-card-sub { color: #3d8e70; }
+.v-teal .card-tag { background: rgba(26,122,94,0.2); color: #5dcea8; }
+.v-teal:hover { border-color: rgba(39,174,127,0.7); box-shadow: 0 4px 24px rgba(26,122,94,0.2); }
+.v-purple { background: #10081c; border-color: rgba(125,60,152,0.4); }
+.v-purple .card-title,.v-purple .big-card-title { color: #c08ee8; }
+.v-purple .card-sub,.v-purple .big-card-sub { color: #8060a8; }
+.v-purple .card-tag { background: rgba(125,60,152,0.2); color: #c08ee8; }
+.v-purple:hover { border-color: rgba(165,105,189,0.7); box-shadow: 0 4px 24px rgba(125,60,152,0.2); }
+.v-coral { background: #1a0c08; border-color: rgba(176,58,46,0.4); }
+.v-coral .card-title,.v-coral .big-card-title { color: #e89880; }
+.v-coral .card-sub,.v-coral .big-card-sub { color: #a06858; }
+.v-coral .card-tag { background: rgba(176,58,46,0.2); color: #e89880; }
+.v-coral:hover { border-color: rgba(230,126,115,0.7); box-shadow: 0 4px 24px rgba(176,58,46,0.2); }
+.v-amber { background: #160e02; border-color: rgba(214,137,16,0.4); }
+.v-amber .card-title,.v-amber .big-card-title { color: #e8c060; }
+.v-amber .card-sub,.v-amber .big-card-sub { color: #a88030; }
+.v-amber .card-tag { background: rgba(214,137,16,0.2); color: #e8c060; }
+.v-amber:hover { border-color: rgba(244,196,51,0.7); box-shadow: 0 4px 24px rgba(214,137,16,0.2); }
+.v-green { background: #061208; border-color: rgba(30,132,73,0.4); }
+.v-green .card-title,.v-green .big-card-title { color: #60c880; }
+.v-green .card-sub,.v-green .big-card-sub { color: #3a885a; }
+.v-green .card-tag { background: rgba(30,132,73,0.2); color: #60c880; }
+.v-green:hover { border-color: rgba(82,190,128,0.7); box-shadow: 0 4px 24px rgba(30,132,73,0.2); }
+/* Modal */
+.modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.75); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 20px; backdrop-filter: blur(4px); opacity: 0; pointer-events: none; transition: opacity .2s; }
+.modal-bg.open { opacity: 1; pointer-events: all; }
+.modal { background: var(--bg2); border: 1px solid var(--border2); border-radius: 14px; padding: 28px 30px; max-width: 540px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; transform: translateY(10px); transition: transform .2s; box-shadow: 0 24px 80px rgba(0,0,0,0.7); }
+.modal-bg.open .modal { transform: translateY(0); }
+.modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; cursor: pointer; color: var(--text3); font-size: 20px; line-height: 1; transition: color .15s; }
+.modal-close:hover { color: var(--text); }
+.modal h3 { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--gold2); margin-bottom: 14px; padding-right: 28px; line-height: 1.35; }
+.modal p { font-size: 14px; line-height: 1.75; color: var(--text2); margin-bottom: 10px; }
+.modal ul { padding-left: 18px; font-size: 14px; color: var(--text2); line-height: 1.75; margin-bottom: 10px; }
+.modal li { margin-bottom: 3px; }
+.modal strong { color: var(--text); font-weight: 600; }
+.modal-divider { height: 1px; background: var(--border); margin: 14px 0; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="star-ornament">★ ✦ ★ ✦ ★</span>
+  <h1>Коминтерн и политика мировой революции</h1>
+  <div class="subtitle">Внешняя политика СССР в 1920–1930-е годы</div>
+  <div class="hint">Нажмите на любую карточку для подробной информации</div>
+</div>
+
+<div class="legend">
+  <div class="leg"><div class="leg-dot" style="background:#c0392b"></div> Руководящие органы</div>
+  <div class="leg"><div class="leg-dot" style="background:#2980b9"></div> Идеология и доктрина</div>
+  <div class="leg"><div class="leg-dot" style="background:#1a7a5e"></div> Региональные секции</div>
+  <div class="leg"><div class="leg-dot" style="background:#7d3c98"></div> Инструменты влияния</div>
+  <div class="leg"><div class="leg-dot" style="background:#b03a2e"></div> Спецструктуры</div>
+  <div class="leg"><div class="leg-dot" style="background:#1e8449"></div> Ключевые события</div>
+  <div class="leg"><div class="leg-dot" style="background:#d68910"></div> Внутренняя борьба</div>
+</div>
+
+<div class="main">
+
+  <div class="section">
+    <div class="section-label">Высший руководящий уровень</div>
+    <div class="row cols-2">
+      <div class="big-card v-red" onclick="show('sovnarkom')">
+        <div class="big-card-title">Советское государство — СНК / Политбюро</div>
+        <div class="big-card-sub">Реальный центр принятия решений. Коминтерн — инструмент советской внешней политики. Финансирование, кадры, стратегические директивы — всё из Москвы.</div>
+      </div>
+      <div class="big-card v-red" onclick="show('komintern-top')">
+        <div class="big-card-title">III Коминтерн (КИ) — Москва, 1919–1943</div>
+        <div class="big-card-sub">Коммунистический Интернационал. Основан Лениным 2–6 марта 1919 г. Формально — самостоятельная международная организация. Штаб — Москва. До 65 секций.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector">Органы управления Коминтерна</div>
+
+  <div class="section">
+    <div class="section-label">Органы Коминтерна</div>
+    <div class="row cols-4">
+      <div class="card v-red" onclick="show('congress')"><div class="card-title">Всемирный конгресс</div><div class="card-sub">Высший орган. 7 конгрессов, 1919–1935. Принимал программные документы и тактику.</div><div class="card-tag">Раз в 2–3 года</div><span class="arr">↗</span></div>
+      <div class="card v-red" onclick="show('ikki')"><div class="card-title">ИККИ</div><div class="card-sub">Исполком КИ. Постоянный руководящий орган. Зиновьев, Бухарин, Димитров — руководители.</div><div class="card-tag">Постоянный орган</div><span class="arr">↗</span></div>
+      <div class="card v-red" onclick="show('prezidium')"><div class="card-title">Президиум ИККИ</div><div class="card-sub">Оперативное руководство. Решения между пленумами. Реальная власть у советских функционеров.</div><div class="card-tag">Оперативный центр</div><span class="arr">↗</span></div>
+      <div class="card v-red" onclick="show('sekretariat')"><div class="card-title">Секретариат и отделы</div><div class="card-sub">ОМС, Агитпроп, Восточный, Западноевропейский отделы. МЛШ — школа кадров.</div><div class="card-tag">Исполнит. аппарат</div><span class="arr">↗</span></div>
+    </div>
+  </div>
+
+  <div class="connector">Идеологические концепции и тактика</div>
+
+  <div class="section">
+    <div class="section-label">Доктрина и идеология</div>
+    <div class="row cols-3">
+      <div class="card v-blue" onclick="show('mirrrev')"><div class="card-title">Теория мировой революции</div><div class="card-sub">Ленин: социализм в России без европейской революции нежизнеспособен. Ставка на Германию и Венгрию.</div><div class="card-tag">Ленинизм, 1919–1924</div><span class="arr">↗</span></div>
+      <div class="card v-blue" onclick="show('sodinstr')"><div class="card-title">«Социализм в одной стране»</div><div class="card-sub">Сталин против Троцкого. Приоритет строительства СССР. КИ — щит советских интересов.</div><div class="card-tag">Сталин, с 1924 г.</div><span class="arr">↗</span></div>
+      <div class="card v-blue" onclick="show('21usl')"><div class="card-title">21 условие вступления</div><div class="card-sub">II конгресс, 1920. Подчинение ИККИ, нелегальный аппарат, исключение реформистов.</div><div class="card-tag">II конгресс, 1920</div><span class="arr">↗</span></div>
+      <div class="card v-blue" onclick="show('popular-front')"><div class="card-title">Тактика «единого фронта»</div><div class="card-sub">IV конгресс, 1922. Сотрудничество с социал-демократами против буржуазии. До 1928 г.</div><div class="card-tag">IV конгресс, 1922</div><span class="arr">↗</span></div>
+      <div class="card v-blue" onclick="show('sotsfa')"><div class="card-title">Теория «социал-фашизма»</div><div class="card-sub">VI конгресс, 1928. Социал-демократы = «умеренный фашизм». Катастрофа Германии 1933.</div><div class="card-tag">VI конгресс, 1928</div><span class="arr">↗</span></div>
+      <div class="card v-blue" onclick="show('narfront')"><div class="card-title">Народный фронт</div><div class="card-sub">VII конгресс, 1935. Димитров: широкие антифашистские коалиции. Победы во Франции, Испании.</div><div class="card-tag">VII конгресс, 1935</div><span class="arr">↗</span></div>
+    </div>
+  </div>
+
+  <div class="connector">Национальные секции (компартии)</div>
+
+  <div class="section">
+    <div class="section-label">Региональные секции Коминтерна</div>
+    <div class="row cols-auto">
+      <div class="card v-teal" onclick="show('kpd')"><div class="card-title">КПГ — Германия</div><div class="card-sub">Крупнейшая секция. Революция 1919, «Гамбургское восстание» 1923. Разгром нацистами 1933.</div><div class="card-tag">Ключевая секция</div><span class="arr">↗</span></div>
+      <div class="card v-teal" onclick="show('kpf')"><div class="card-title">ФКП — Франция</div><div class="card-sub">Раскол СФИО в Туре, 1920. Народный фронт 1936. Правительство Блюма.</div><div class="card-tag">Зап. Европа</div><span class="arr">↗</span></div>
+      <div class="card v-teal" onclick="show('kpvb')"><div class="card-title">КПВ — Великобритания</div><div class="card-sub">Основана 1920. Всеобщая стачка 1926. «Письмо Зиновьева» — дипломатический скандал.</div><div class="card-tag">Зап. Европа</div><span class="arr">↗</span></div>
+      <div class="card v-teal" onclick="show('kpk')"><div class="card-title">КПК — Китай</div><div class="card-sub">Основана 1921. Блок с Гоминьданом 1923–1927. Шанхайская резня. «Великий поход».</div><div class="card-tag">Восток</div><span class="arr">↗</span></div>
+      <div class="card v-teal" onclick="show('kpusa')"><div class="card-title">КП США</div><div class="card-sub">Основана 1919. Профсоюзная работа, антирасистские кампании. Финансирование через Амторг.</div><div class="card-tag">Америка</div><span class="arr">↗</span></div>
+      <div class="card v-teal" onclick="show('vengriya')"><div class="card-title">Венгрия — 1919</div><div class="card-sub">Советская республика (133 дня). Бела Кун. Первая попытка экспорта революции.</div><div class="card-tag">Революция 1919</div><span class="arr">↗</span></div>
+      <div class="card v-teal" onclick="show('ispaniya')"><div class="card-title">КП Испании</div><div class="card-sub">Гражданская война 1936–1939. СССР — единственный поставщик оружия республиканцам.</div><div class="card-tag">Испания 1936–39</div><span class="arr">↗</span></div>
+    </div>
+  </div>
+
+  <div class="connector">Инструменты влияния и пропаганды</div>
+
+  <div class="section">
+    <div class="section-label">Инструменты и организации влияния</div>
+    <div class="row cols-3">
+      <div class="card v-purple" onclick="show('profintern')"><div class="card-title">Профинтерн (КПП)</div><div class="card-sub">Красный интернационал профсоюзов, 1921–1937. 17 млн членов на пике. Руководитель — Лозовский.</div><div class="card-tag">Профсоюзный фронт</div><span class="arr">↗</span></div>
+      <div class="card v-purple" onclick="show('krestintern')"><div class="card-title">Крестьянский интернационал</div><div class="card-sub">Крестинтерн, 1923–1933. Работа с крестьянскими движениями Вост. Европы и Азии.</div><div class="card-tag">Крестьянский фронт</div><span class="arr">↗</span></div>
+      <div class="card v-purple" onclick="show('mopri')"><div class="card-title">МОПР</div><div class="card-sub">«Красная помощь», 1922. Помощь арестованным коммунистам. Дело Сакко и Ванцетти.</div><div class="card-tag">Правозащитный фронт</div><span class="arr">↗</span></div>
+      <div class="card v-purple" onclick="show('komsomol-int')"><div class="card-title">КИМ — молодёжный интернационал</div><div class="card-sub">Коминтерн молодёжи, 1919. 2 млн членов. Вербовка, пропаганда в школах и вузах.</div><div class="card-tag">Молодёжный фронт</div><span class="arr">↗</span></div>
+      <div class="card v-purple" onclick="show('mezhdrabpom')"><div class="card-title">Межрабпом — кино</div><div class="card-sub">Советско-германская кинокомпания. Эйзенштейн, Пудовкин. Кино как орудие пропаганды.</div><div class="card-tag">Культурный фронт</div><span class="arr">↗</span></div>
+      <div class="card v-purple" onclick="show('agitprop')"><div class="card-title">Агитпроп ИККИ</div><div class="card-sub">Издания на 30+ языках. МЛШ — школа кадров. Журнал «Коммунистический Интернационал».</div><div class="card-tag">Пропаганда</div><span class="arr">↗</span></div>
+    </div>
+  </div>
+
+  <div class="connector">Специальные и разведывательные структуры</div>
+
+  <div class="section">
+    <div class="section-label">Разведка и спецструктуры</div>
+    <div class="row cols-4">
+      <div class="card v-coral" onclick="show('oms')"><div class="card-title">ОМС — связь с секциями</div><div class="card-sub">Отдел международной связи. Курьерская сеть, фальшивые паспорта, нелегальное финансирование.</div><div class="card-tag">Нелегальная связь</div><span class="arr">↗</span></div>
+      <div class="card v-coral" onclick="show('razv')"><div class="card-title">Разведупр / ГРУ</div><div class="card-sub">Военная разведка РККА. Использовала сети КИ. Рихард Зорге — вербовка через КИ.</div><div class="card-tag">Военная разведка</div><span class="arr">↗</span></div>
+      <div class="card v-coral" onclick="show('ogpu')"><div class="card-title">ОГПУ / НКВД</div><div class="card-sub">ИНО — параллельная сеть. Охота на Троцкого. Репрессии иностранных коммунистов в СССР.</div><div class="card-tag">Полит. разведка</div><span class="arr">↗</span></div>
+      <div class="card v-coral" onclick="show('interbrig')"><div class="card-title">Интербригады</div><div class="card-sub">Испания 1936–1939. ~35 000 добровольцев из 53 стран. Организованы через КИ.</div><div class="card-tag">Вооружённый фронт</div><span class="arr">↗</span></div>
+    </div>
+  </div>
+
+  <div class="connector">Ключевые события и переломные моменты</div>
+
+  <div class="section">
+    <div class="section-label">Ключевые события 1919–1943</div>
+    <div class="row cols-auto">
+      <div class="card v-green" onclick="show('ev1919')"><div class="card-title">1919 — основание КИ</div><div class="card-sub">Москва, март. 52 делегата. Революции в Германии и Венгрии. Ленин: «Победа в год-два».</div><div class="card-tag">Учредительный</div><span class="arr">↗</span></div>
+      <div class="card v-green" onclick="show('ev1920')"><div class="card-title">1920 — поход на Варшаву</div><div class="card-sub">Расчёт на революцию в Польше. «Чудо на Висле» — разгром Красной армии.</div><div class="card-tag">Военный провал</div><span class="arr">↗</span></div>
+      <div class="card v-green" onclick="show('ev1923')"><div class="card-title">1923 — «Германский октябрь»</div><div class="card-sub">Подготовка восстания в Германии. Гамбург — 3 дня боёв. Провал.</div><div class="card-tag">Провал</div><span class="arr">↗</span></div>
+      <div class="card v-green" onclick="show('ev1927')"><div class="card-title">1927 — разгром в Китае</div><div class="card-sub">Чан Кайши уничтожил КПК. Политика единого фронта с Гоминьданом — катастрофа.</div><div class="card-tag">Восточный кризис</div><span class="arr">↗</span></div>
+      <div class="card v-green" onclick="show('ev1933')"><div class="card-title">1933 — приход Гитлера</div><div class="card-sub">КПГ разгромлена. Тельман в тюрьме. Пересмотр тактики «социал-фашизма».</div><div class="card-tag">Европ. кризис</div><span class="arr">↗</span></div>
+      <div class="card v-green" onclick="show('ev1943')"><div class="card-title">1943 — роспуск КИ</div><div class="card-sub">Сталин распустил КИ 15 мая 1943. Жест союзникам. Преемник — Отдел международной информации ЦК.</div><div class="card-tag">Роспуск</div><span class="arr">↗</span></div>
+    </div>
+  </div>
+
+  <div class="connector">Лидеры и внутренняя борьба</div>
+
+  <div class="section">
+    <div class="section-label">Ключевые деятели и противоречия</div>
+    <div class="row cols-3">
+      <div class="card v-amber" onclick="show('trotsky')"><div class="card-title">Троцкий — «перманентная революция»</div><div class="card-sub">Оппонент Сталина. Исключён из ВКП(б) 1927. IV Интернационал 1938. Убит НКВД в 1940.</div><div class="card-tag">Левая оппозиция</div><span class="arr">↗</span></div>
+      <div class="card v-amber" onclick="show('zinoviev')"><div class="card-title">Зиновьев — первый председатель</div><div class="card-sub">Руководил ИККИ 1919–1926. «Письмо Зиновьева». Ленинградская оппозиция. Расстрелян 1936.</div><div class="card-tag">Первый лидер</div><span class="arr">↗</span></div>
+      <div class="card v-amber" onclick="show('dimitrov')"><div class="card-title">Димитров — Лейпцигский процесс</div><div class="card-sub">Оправдан нацистским судом 1933. Символ антифашизма. Генсек ИККИ 1935–1943.</div><div class="card-tag">Новое руководство</div><span class="arr">↗</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div id="modal" class="modal-bg" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3 id="modal-title"></h3>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+const D = {
+  sovnarkom:{title:'Советское государство — реальный центр принятия решений',body:`<p>Несмотря на формальную независимость Коминтерна, реальное управление осуществлялось через Политбюро ЦК РКП(б)/ВКП(б). Ленин, а затем Сталин фактически определяли политику КИ через доверенных представителей в ИККИ.</p><div class="modal-divider"></div><p><strong>Механизм контроля:</strong> Финансирование компартий шло через советский бюджет (ОМС). Советские представители занимали ключевые посты. Решения ИККИ предварительно согласовывались с Политбюро.</p><p><strong>Сталин и КИ:</strong> После 1924 г. Коминтерн превратился в инструмент советской внешней политики, а не глобального революционного движения. Интересы СССР ставились выше интересов зарубежных компартий — особенно ярко это проявилось после пакта Молотова–Риббентропа 1939 г.</p>`},
+  'komintern-top':{title:'III Коммунистический интернационал (1919–1943)',body:`<p>Основан 2–6 марта 1919 г. в Москве по инициативе Ленина как альтернатива «предательскому» II Интернационалу, чьи партии поддержали военные кредиты своих правительств в 1914 г.</p><div class="modal-divider"></div><p><strong>Нумерация:</strong> I Интернационал — Маркс и Энгельс (1864–1876). II Интернационал — социал-демократический (1889–1923). III — революционно-коммунистический.</p><p><strong>Штаб-квартира:</strong> Москва, гостиница «Люкс» — здесь жили сотни иностранных коммунистов. Аппарат насчитывал тысячи сотрудников из десятков стран.</p><p><strong>Официальная цель:</strong> «Борьба всеми средствами, в том числе вооружёнными, за свержение международной буржуазии и создание Международной советской республики».</p>`},
+  congress:{title:'Всемирные конгрессы Коминтерна (1919–1935)',body:`<p>Высший орган КИ. Проведено 7 конгрессов:</p><ul><li><strong>I (1919, Москва)</strong> — учредительный, ставка на скорую мировую революцию</li><li><strong>II (1920, Петроград/Москва)</strong> — 21 условие, вопрос о национально-колониальных движениях</li><li><strong>III (1921, Москва)</strong> — отказ от «штурма», тактика «единого фронта»</li><li><strong>IV (1922, Петроград/Москва)</strong> — «рабочее правительство»</li><li><strong>V (1924, Москва)</strong> — «большевизация» партий, централизация</li><li><strong>VI (1928, Москва)</strong> — теория «социал-фашизма», «третий период»</li><li><strong>VII (1935, Москва)</strong> — тактика Народного фронта (Димитров), последний конгресс</li></ul><p>После 1935 г. конгрессы не проводились — Коминтерн управлялся аппаратом ИККИ.</p>`},
+  ikki:{title:'ИККИ — Исполнительный комитет Коминтерна',body:`<p>Постоянный руководящий орган между конгрессами. Имел право давать обязательные указания национальным секциям, вплоть до смены их руководства.</p><div class="modal-divider"></div><p><strong>Руководители:</strong></p><ul><li><strong>Григорий Зиновьев</strong> (1919–1926) — активный пропагандист мировой революции</li><li><strong>Николай Бухарин</strong> (1926–1929) — «правый уклон», снят Сталиным</li><li><strong>Вячеслав Молотов и другие</strong> (и.о., 1929–1934) — фактическое подчинение Москве</li><li><strong>Георгий Димитров</strong> (1935–1943) — политика Народного фронта</li></ul><p>Ключевую роль играли Осип Пятницкий (ОМС), Дмитрий Мануильский и Отто Куусинен — советские функционеры, обеспечивавшие прямую связь с Политбюро.</p>`},
+  prezidium:{title:'Президиум ИККИ — оперативный центр',body:`<p>Работал между пленумами ИККИ. Принимал оперативные решения, в т.ч. по смене руководства зарубежных компартий.</p><p>В состав входили представители крупнейших компартий и советские функционеры. Реальная власть концентрировалась у советских представителей — Мануильский, Пятницкий, Куусинен.</p><p><strong>Осип Пятницкий</strong> — многолетний руководитель организационного отдела. Создатель нелегальной инфраструктуры КИ. Арестован в 1937 г. и расстрелян в 1938 г. в ходе «Большого террора», затронувшего сотни иностранных коммунистов в СССР.</p>`},
+  sekretariat:{title:'Секретариат и отделы ИККИ',body:`<p>Основные подразделения:</p><ul><li><strong>ОМС (Отдел международной связи)</strong> — нелегальная связь с секциями, паспорта, финансирование</li><li><strong>Агитпроп</strong> — издательская деятельность, пропаганда на 30+ языках</li><li><strong>Восточный отдел</strong> — колониальные и зависимые страны Азии и Африки</li><li><strong>Западноевропейский отдел</strong> — координация с европейскими секциями</li><li><strong>Информационный отдел</strong> — сбор сведений о рабочем движении</li></ul><p><strong>Международная ленинская школа (МЛШ, 1926–1938)</strong> — главный кадровый центр КИ. Подготовила тысячи функционеров для зарубежных компартий. Выпускники занимали руководящие посты по всему миру.</p>`},
+  mirrrev:{title:'Теория мировой революции',body:`<p>Ленин считал, что революция в России может выжить лишь как первое звено в цепи мировых революций. Особые надежды возлагались на Германию — наиболее промышленно развитую страну с сильным рабочим движением.</p><div class="modal-divider"></div><p><strong>Революционная волна 1918–1923:</strong></p><ul><li>Финляндия (1918) — подавлена</li><li>Германия — Ноябрьская революция 1918, убийство Люксембург и Либкнехта</li><li>Венгрия (1919) — 133 дня, разгром</li><li>Бавария (1919) — 2 недели</li><li>«Германский октябрь» (1923) — провал</li></ul><p>К 1924 г. стало очевидно: немедленная мировая революция не состоится. Революционный подъём в Европе угас.</p>`},
+  sodinstr:{title:'Социализм в одной стране — доктрина Сталина',body:`<p>В 1924–1925 гг. Сталин сформулировал тезис: СССР способен построить полный социализм в одной стране без победы мировой революции. Это противоречило ленинским установкам и теории Троцкого о «перманентной революции».</p><div class="modal-divider"></div><p><strong>Последствия для КИ:</strong> Коминтерн стал рассматриваться как инструмент защиты СССР — давление на буржуазные правительства, разведка, создание пояса симпатизирующих движений, а не как штаб мировой революции.</p><p><strong>Критика Троцкого:</strong> «Национал-реформизм» и «измена интернационализму». Именно этот спор лёг в основу исключения Троцкого из партии (1927) и высылки из СССР (1929).</p>`},
+  '21usl':{title:'21 условие вступления в Коминтерн (1920)',body:`<p>Принято на II конгрессе. Цель — не допустить в КИ «оппортунистов» и реформистов.</p><div class="modal-divider"></div><p><strong>Ключевые условия:</strong></p><ul><li>Полное подчинение решениям ИККИ</li><li>Создание нелегального параллельного аппарата</li><li>Исключение всех «центристов» и «реформистов»</li><li>Обязательная поддержка советских республик всеми средствами</li><li>Переименование: обязательно слово «Коммунистическая»</li><li>Систематическая пропаганда в армии и на флоте</li></ul><p>Условия вызвали раскол в социал-демократических партиях по всей Европе — часть ушла в КИ, часть осталась в II Интернационале.</p>`},
+  'popular-front':{title:'Тактика «единого фронта» (1921–1928)',body:`<p>Принята на III–IV конгрессах после провала немедленной революции. Суть: коммунисты сотрудничают с социал-демократами по конкретным требованиям (зарплата, права), сохраняя политическую независимость.</p><div class="modal-divider"></div><p><strong>«Единый фронт снизу»</strong> — работа с рядовыми членами, минуя руководство социал-демократических партий.</p><p><strong>Конец тактики:</strong> VI конгресс 1928 г. — «третий период» и теория «социал-фашизма» полностью разорвала союз с социал-демократами.</p>`},
+  sotsfa:{title:'Теория «социал-фашизма» — катастрофическая ошибка',body:`<p>Принята на VI конгрессе (1928). «Третий период» — якобы финальный кризис капитализма. Социал-демократия объявлена «умеренным крылом фашизма».</p><div class="modal-divider"></div><p><strong>Трагедия Германии:</strong> КПГ (~300 000 членов) отказалась от любого сотрудничества с 8-миллионной СДПГ против нацистов. В 1932 г. обе партии вместе набрали больше голосов, чем НСДАП — но союза не было из-за доктрины «социал-фашизма».</p><p>Тактика официально осуждена самим Коминтерном на VII конгрессе 1935 г. как «сектантская ошибка, подарившая власть фашизму».</p>`},
+  narfront:{title:'Народный фронт — VII конгресс 1935',body:`<p>Димитров призвал к широким антифашистским коалициям — от коммунистов до либералов — против фашизма.</p><div class="modal-divider"></div><p><strong>Успехи:</strong></p><ul><li><strong>Франция, 1936:</strong> Победа на выборах. Правительство Блюма. 40-часовая рабочая неделя, оплачиваемые отпуска.</li><li><strong>Испания, 1936:</strong> Победа на выборах → путч Франко → гражданская война. СССР — единственный поставщик оружия.</li><li><strong>Чили, 1938:</strong> Народный фронт у власти.</li></ul><p>Тактика была и инструментом советской дипломатии — СССР в 1934 г. вступил в Лигу Наций, искал союзников против Германии.</p>`},
+  kpd:{title:'КПГ — Коммунистическая партия Германии',body:`<p>Основана в декабре 1918 г. Розой Люксембург и Карлом Либкнехтом. Оба убиты в январе 1919 г. Стала крупнейшей компартией мира за пределами СССР.</p><div class="modal-divider"></div><ul><li><strong>Январское восстание 1919</strong> — подавлено, лидеры убиты</li><li><strong>«Гамбургское восстание», октябрь 1923</strong> (Тельман) — 3 дня, подавлено</li><li><strong>1932 год</strong> — 100 депутатов рейхстага, 14,5% голосов</li><li><strong>Январь 1933</strong> — КПГ запрещена, тысячи арестованы</li><li><strong>Эрнст Тельман</strong> — арестован 3 марта 1933, казнён в Бухенвальде 1944</li></ul>`},
+  kpf:{title:'ФКП — Французская коммунистическая партия',body:`<p>Основана в декабре 1920 г. в Туре — раскол СФИО. Большинство делегатов проголосовало за вступление в Коминтерн.</p><div class="modal-divider"></div><p><strong>Народный фронт 1936:</strong> Коалиция ФКП, СФИО и радикалов. Правительство социалиста Леона Блюма. Реформы: 40-часовая рабочая неделя, 2 недели оплачиваемого отпуска, коллективные договоры.</p><p>ФКП неукоснительно следовала директивам Москвы, в т.ч. оправдывала пакт Молотова–Риббентропа (1939) и выступала против «империалистической войны» до нападения Германии на СССР в 1941 г.</p>`},
+  kpvb:{title:'КПВ — Коммунистическая партия Великобритании',body:`<p>Основана в 1920 г. Никогда не была массовой, но имела влияние в профсоюзном движении.</p><div class="modal-divider"></div><p><strong>«Письмо Зиновьева» (октябрь 1924):</strong> Письмо якобы от председателя ИККИ в КПВ с инструкциями по подрывной деятельности. Опубликовано за 4 дня до выборов. Лейбористы проиграли. Большинство историков считают письмо фальшивкой британской разведки.</p><p><strong>Разрыв дипломатических отношений (1927):</strong> После обвинений в советском финансировании Всеобщей стачки 1926 г.</p>`},
+  kpk:{title:'КПК — Коммунистическая партия Китая',body:`<p>Основана в июле 1921 г. в Шанхае при участии советника Коминтерна Войтинского. Мао Цзэдун — один из 13 делегатов учредительного съезда.</p><div class="modal-divider"></div><p><strong>«Шанхайская резня», 12 апреля 1927 г.:</strong> Чан Кайши устроил облавы на коммунистов. Тысячи убиты. Политика КИ признана катастрофически провальной. КПК сократилась с ~60 000 до ~10 000 членов.</p><p><strong>«Великий поход» 1934–1935:</strong> Переход КПК на 10 000 км под давлением Гоминьдана. Мао укрепил лидерство. КИ продолжал поддерживать КПК советниками.</p>`},
+  kpusa:{title:'Коммунистическая партия США',body:`<p>Основана в 1919 г. Работала в условиях постоянных репрессий («красные рейды» Палмера, 1919–1920).</p><div class="modal-divider"></div><p><strong>Финансирование:</strong> Через советское торговое представительство Амторг.</p><p><strong>Влияние в 1930-е:</strong> Профсоюзное движение (CIO), антирасистские кампании (дело Скоттсборо, 1931). В годы Депрессии — рост до ~75 000 членов (1938).</p><p><strong>Разведывательная деятельность:</strong> Ряд членов КП США участвовал в советских операциях — сети Розенбергов, Элджера Хисса. Документы «Проекта VENONA» подтвердили масштабы.</p>`},
+  vengriya:{title:'Венгерская советская республика (1919)',body:`<p>Провозглашена 21 марта 1919 г. Бела Кун — лидер, вернувшийся из российского плена убеждённым большевиком.</p><div class="modal-divider"></div><p><strong>133 дня:</strong> Национализация промышленности, земельная реформа, Красная армия. Попытка через Румынию соединиться с советской Россией.</p><p><strong>Разгром:</strong> Румынские и чехословацкие войска при поддержке Антанты. 1 августа 1919 г. — падение. «Белый террор» Хорти: тысячи убиты.</p><p>Первая попытка экспорта революции показала: без советской военной поддержки революции нежизнеспособны против вмешательства великих держав.</p>`},
+  ispaniya:{title:'Гражданская война в Испании (1936–1939)',body:`<p>Путч Франко против правительства Народного фронта в июле 1936 г. СССР — единственное государство, поставлявшее оружие республиканцам.</p><div class="modal-divider"></div><p><strong>Советское участие:</strong> Танки Т-26, самолёты И-15/И-16. ~2000 советских советников. Оплата — испанским золотым резервом (вывезен в СССР).</p><p><strong>Интербригады:</strong> ~35 000 добровольцев из 53 стран, организованных через КИ. Батальоны Линкольна, Домбровского, Гарибальди, Тельмана.</p><p><strong>НКВД в Испании:</strong> Ликвидация «троцкистов» (ПОУМ) и анархистов — подрыв единства республики.</p><p>Поражение (апрель 1939) — крупнейший провал политики Народного фронта.</p>`},
+  profintern:{title:'Профинтерн — Красный интернационал профсоюзов (1921–1937)',body:`<p>Основан в 1921 г. как революционная альтернатива реформистскому Амстердамскому интернационалу. Пик — 17 млн членов в 41 стране (1924).</p><div class="modal-divider"></div><p><strong>Руководитель:</strong> Соломон Лозовский — с 1921 до роспуска.</p><p><strong>Тактика «красного меньшинства»:</strong> Не создавать отдельные «красные» профсоюзы, а действовать изнутри существующих реформистских — формировать революционные фракции.</p><p>Распущен в 1937 г. в рамках политики Народного фронта. Лозовский стал заместителем наркома иностранных дел. Расстрелян в 1952 г.</p>`},
+  krestintern:{title:'Крестьянский интернационал (Крестинтерн, 1923–1933)',body:`<p>Работа с крестьянскими движениями Восточной Европы, Азии и Латинской Америки. Противодействие Зелёному интернационалу некоммунистических аграрных партий.</p><p>Попытки организовать крестьянские советы в Румынии, Болгарии, Польше — безуспешные.</p><p>Распущен в 1933 г. — крестьянское революционное движение не стало значительной силой, в т.ч. из-за негативного влияния советской коллективизации на имидж СССР.</p>`},
+  mopri:{title:'МОПР — Международная организация помощи борцам революции',body:`<p>Основана в 1922 г. («Международная красная помощь»). Юридическая и материальная помощь политическим заключённым-коммунистам по всему миру.</p><div class="modal-divider"></div><p><strong>Деятельность:</strong> Сбор средств, организация адвокатов, международные кампании.</p><p><strong>Громкие кампании:</strong> Дело Сакко и Ванцетти (США, 1927), дело Тельмана (1933), дело Димитрова (1933).</p><p>Важный инструмент «массовой работы» — вовлечения симпатизирующих в орбиту КИ.</p>`},
+  'komsomol-int':{title:'КИМ — Коммунистический интернационал молодёжи',body:`<p>Основан в ноябре 1919 г. в Берлине. К 1928 г. — более 2 млн членов в 55 странах.</p><div class="modal-divider"></div><p>Антивоенная пропаганда, работа в школах и университетах, связь с пионерскими организациями.</p><p>КИМ воспитывал будущих функционеров компартий. Через него прошли многие будущие лидеры мирового коммунизма.</p><p>Распущен вместе с КИ в 1943 г.</p>`},
+  mezhdrabpom:{title:'Межрабпом — кино как оружие пропаганды',body:`<p>Советско-германская кинокомпания, основанная по инициативе КИ в 1921 г. немецким коммунистом Вилли Мюнценбергом — мастером «невинных» организаций-«ширм».</p><div class="modal-divider"></div><p>Совместная дистрибуция «Броненосца Потёмкина» Эйзенштейна. Документальные фильмы о жизни в СССР.</p><p>Позиционировалась как «рабочая кинокомпания», а не советская пропаганда. Рабочие кинотеатры Германии, Франции, Великобритании.</p>`},
+  agitprop:{title:'Агитпроп ИККИ — издания и учёба',body:`<p>Издательская деятельность на 30+ языках: газеты, теоретические журналы, брошюры, листовки.</p><div class="modal-divider"></div><p><strong>«Коммунистический Интернационал»</strong> — главный теоретический журнал на нескольких языках.</p><p><strong>МЛШ (1926–1938):</strong> Программа включала марксистско-ленинскую теорию, конспиративную работу, военную подготовку. Выпускники занимали руководящие посты компартий по всему миру.</p><p>С конца 1920-х гг. — радиопередачи на иностранных языках через советское радио.</p>`},
+  oms:{title:'ОМС — Отдел международной связи',body:`<p>Один из наиболее секретных отделов ИККИ. Связь с нелегальными организациями в странах, где компартии были запрещены.</p><div class="modal-divider"></div><ul><li>Курьерская сеть — переброска агентов, документов, денег</li><li>Изготовление фальшивых паспортов</li><li>Финансирование через подставные компании</li><li>Нелегальные радиоточки и шифрованная связь</li></ul><p>Руководители: Осип Пятницкий (до 1937), Михаил Трилиссер. Тесное взаимодействие с ИНО ОГПУ/НКВД.</p>`},
+  razv:{title:'Разведупр РККА (ГРУ) и Коминтерн',body:`<p>Военная разведка использовала сети КИ для вербовки. Граница между «партийной работой» и военной разведкой была намеренно размыта.</p><div class="modal-divider"></div><p><strong>Рихард Зорге:</strong> Германский журналист, член КПГ с 1919 г. Работал в Японии (1933–1941). Добыл сведения о точной дате нападения Германии на СССР и о том, что Япония не атакует СССР. Казнён в Токио 7 ноября 1944 г. Герой Советского Союза (посмертно, 1964).</p>`},
+  ogpu:{title:'ОГПУ / НКВД и международные операции',body:`<p>Иностранный отдел (ИНО) вёл параллельную разведывательную деятельность.</p><div class="modal-divider"></div><p><strong>Охота на Троцкого:</strong> Лев Седов (сын) убит в Париже в 1938 г. Сам Троцкий убит в Мексике в 1940 г. (агент Меркадер, ледоруб).</p><p><strong>«Большой террор» и КИ:</strong> В 1936–1938 гг. репрессиям подверглись сотни иностранных коммунистов в СССР. Особенно пострадали польские, югославские, венгерские коммунисты. Парадокс: НКВД уничтожал тех самых функционеров, которых КИ годами обучал в МЛШ.</p>`},
+  interbrig:{title:'Интернациональные бригады в Испании (1936–1939)',body:`<p>~35 000 добровольцев из 53 стран, организованных через КИ. База — Альбасете, Испания.</p><div class="modal-divider"></div><ul><li>Батальон Авраама Линкольна — американцы</li><li>Бригада Домбровского — поляки и балканцы</li><li>Бригада Гарибальди — итальянцы</li><li>Бригада Тельмана — немцы и австрийцы</li></ul><p>Советские советники — будущий маршал Малиновский, генерал Павлов.</p><p>Выведены из Испании в сентябре 1938 г. Многие бойцы впоследствии погибли в «Большом терроре», нацистских лагерях или Второй мировой войне.</p>`},
+  ev1919:{title:'Основание Коминтерна, март 1919',body:`<p>2–6 марта 1919 г. в Москве. 52 делегата от 35 партий и групп. Большинство — эмигранты или иностранные коммунисты, оказавшиеся в России.</p><div class="modal-divider"></div><p>Контекст: революция в Германии (ноябрь 1918), советская власть в Венгрии (март 1919), Баварская советская республика (апрель 1919). Ленин ожидал победы революции в Германии «в ближайшие месяцы».</p><p>Принята Манифест КИ — призыв к мировому пролетариату к вооружённой борьбе.</p>`},
+  ev1920:{title:'Советско-польская война и «Чудо на Висле» (1920)',body:`<p>В августе 1920 г. Красная армия подошла к Варшаве. Большевики рассчитывали, что польские рабочие поднимут восстание и революция перекинется в Германию.</p><div class="modal-divider"></div><p><strong>«Чудо на Висле»:</strong> Польская армия контратаковала и разгромила советские войска. Ключевую роль сыграли французские военные советники и перехват советских радиограмм.</p><p><strong>Рижский мир (март 1921):</strong> СССР признал независимость Польши. Ленин признал: «Германского пролетария к Польше мы не притащили».</p>`},
+  ev1923:{title:'«Германский октябрь» — провал 1923',body:`<p>Осенью 1923 г. Германия в кризисе: оккупация Рура, гиперинфляция, нестабильность. ИККИ принял решение о подготовке восстания.</p><div class="modal-divider"></div><p>В Германию направлены советники и деньги. КПГ формировала «пролетарские сотни».</p><p><strong>Гамбургское восстание (23–25 октября):</strong> Единственная точка, где оно реально началось — под руководством Тельмана. 3 дня боёв. В остальных городах восстание не началось из-за ошибок связи.</p><p>Провал — важнейший перелом: конец надежд на революцию в Германии в обозримой перспективе.</p>`},
+  ev1927:{title:'Разгром КПК в Китае — кризис 1927',body:`<p><strong>«Шанхайская резня», 12 апреля 1927 г.:</strong> Чан Кайши при поддержке шанхайских банкиров устроил внезапные облавы. Тысячи коммунистов убиты. В декабре 1927 г. — аналогичная резня в Гуанчжоу.</p><div class="modal-divider"></div><p>Сталин настаивал на продолжении политики единого фронта вплоть до разгрома. Троцкий предупреждал заранее — но был уже в политическом поражении.</p><p>КПК сократилась с ~60 000 до ~10 000 членов. Начался путь к «Великому походу» 1934–1935 гг.</p>`},
+  ev1933:{title:'Приход Гитлера к власти — переломный 1933',body:`<p>30 января 1933 г. Гитлер — рейхсканцлер. В марте–апреле КПГ запрещена, тысячи арестованы. Дахау открыт 22 марта 1933 г.</p><div class="modal-divider"></div><p><strong>Эрнст Тельман</strong> арестован 3 марта 1933 г. 11 лет в одиночной камере. Казнён в Бухенвальде 18 августа 1944 г. по приказу Гитлера.</p><p>КИ поначалу представлял приход Гитлера как «временный». Постепенный пересмотр тактики. К VII конгрессу 1935 г. — полный поворот к Народному фронту.</p><p>СССР в 1934 г. вступил в Лигу Наций. Политика «коллективной безопасности» Литвинова.</p>`},
+  ev1943:{title:'Роспуск Коминтерна, 15 мая 1943',body:`<p>15 мая 1943 г. — постановление Президиума ИККИ о роспуске. 22 мая опубликовано.</p><div class="modal-divider"></div><p><strong>Официальное обоснование:</strong> Различие условий в разных странах не позволяет управлять из единого центра.</p><p><strong>Реальные причины:</strong> Жест в сторону союзников (США, Великобритания называли КИ «пятой колонной»). Сталин демонстрировал, что не стремится к экспорту коммунизма.</p><p><strong>Фактическое продолжение:</strong> Отдел международной информации ЦК взял на себя координацию. В 1947 г. создан Коминформ — новая, закрытая структура.</p>`},
+  trotsky:{title:'Лев Троцкий — «перманентная революция»',body:`<p>Теория: буржуазная революция перерастает в социалистическую, которая должна стать международной. Без мировой революции социализм в России обречён на бюрократическое перерождение.</p><div class="modal-divider"></div><ul><li>1923 — «Письмо к партии», критика бюрократизации</li><li>1926–1927 — «Объединённая оппозиция» с Зиновьевым</li><li>Ноябрь 1927 — исключён из ВКП(б)</li><li>1929 — выслан из СССР в Турцию</li></ul><p><strong>IV Интернационал (1938):</strong> Альтернатива «сталинизированному» КИ. Никогда не стал массовой силой.</p><p><strong>Убийство:</strong> 20 августа 1940 г., Мексика. Агент НКВД Рамон Меркадер. Ледоруб. Реабилитирован в России не был.</p>`},
+  zinoviev:{title:'Григорий Зиновьев — первый лидер Коминтерна',body:`<p>Председатель ИККИ 1919–1926. Ближайший соратник Ленина в эмиграции. Лично курировал подготовку революций в Европе.</p><div class="modal-divider"></div><p><strong>«Письмо Зиновьева» (октябрь 1924):</strong> Якобы инструкции КПВ по подрывной работе. Опубликовано за 4 дня до выборов. Лейбористы проиграли. Большинство историков считают фальшивкой МИ-6.</p><p><strong>Падение:</strong> Тройка (Зиновьев–Каменев–Сталин) против Троцкого → «Ленинградская оппозиция» против Сталина → поражение.</p><p>Расстрелян 25 августа 1936 г. — первый из обвиняемых на показательных процессах «Большого террора».</p>`},
+  dimitrov:{title:'Георгий Димитров — Лейпцигский процесс 1933',body:`<p>Болгарский коммунист, руководитель бюро КИ в Берлине. Арестован нацистами по подозрению в поджоге Рейхстага.</p><div class="modal-divider"></div><p><strong>Лейпцигский процесс (сентябрь–декабрь 1933):</strong> Димитров сам вёл защиту, открыто атаковал прокуроров. Геринга дважды допрашивал как свидетеля и публично ставил в тупик. Оправдан за отсутствием доказательств.</p><p>Мировая пропагандистская победа КИ. Димитров — символ антифашизма.</p><p><strong>Генсек ИККИ (1935–1943):</strong> Автор доктрины Народного фронта. После роспуска КИ — первый премьер-министр Болгарии (1946–1949).</p>`}
+};
+function show(id){const d=D[id];if(!d)return;document.getElementById('modal-title').textContent=d.title;document.getElementById('modal-body').innerHTML=d.body;document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+</script>
+</body>
+</html>
